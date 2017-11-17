@@ -1,0 +1,43 @@
+{
+  "name": "react-native-timer",
+  "version": "1.0.0",
+  "description": "React Native eventful timer",
+  "private": true,
+  "keywords": [
+    "react-native",
+    "react",
+    "native",
+    "timer",
+    "event"
+  ],
+  "main": "src/Timer.js",
+  "scripts": {
+    "test": "mocha --require test/support/env --compilers js:babel-core/register --reporter spec --bail --check-leaks test/",
+    "test-ci": "istanbul cover node_modules/mocha/bin/_mocha --compilers js:babel-core/register --report lcovonly -- --require test/support/env --reporter spec --check-leaks test/",
+    "test-cov": "istanbul cover node_modules/mocha/bin/_mocha -- --compilers js:babel-core/register --require test/support/env --reporter dot --check-leaks test/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gregl83/react-native-timer.git"
+  },
+  "author": "Gregory Langlais",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gregl83/react-native-timer/issues"
+  },
+  "homepage": "https://github.com/gregl83/react-native-timer#readme",
+  "dependencies": {
+    "fbemitter": "^2.1.1",
+    "react-native-background-timer": "^1.3.0",
+    "react-timer": "git+https://1bd8c4528e2e41307fdfc0828bce68935045c381:x-oauth-basic@github.com/gregl83/react-timer.git"
+  },
+  "devDependencies": {
+    "babel-core": "^6.25.0",
+    "babel-preset-node6": "^11.0.0",
+    "mocha": "^3.4.2",
+    "sinon": "^2.3.4",
+    "should": "^11.2.1",
+    "should-sinon": "^0.0.5",
+    "istanbul": "^0.4.5"
+  }
+}
