@@ -1,4 +1,3 @@
-import { EventEmitter } from "fbemitter"
 import ReactTimer from "react-timer"
 import Interval from "./Interval"
 
