@@ -1,5 +1,5 @@
 {
-  "name": "react-native-timer",
+  "name": "ReactNativeTimer",
   "version": "1.0.0",
   "description": "React Native eventful timer",
   "private": true,
@@ -28,7 +28,6 @@
   "dependencies": {
     "react": "16.0.0-alpha.6",
     "react-native": "0.44.2",
-    "react-native-tts": "^1.3.0",
     "fbemitter": "^2.1.1",
     "react-native-background-timer": "^1.3.0",
     "react-timer": "git+https://1bd8c4528e2e41307fdfc0828bce68935045c381:x-oauth-basic@github.com/gregl83/react-timer.git"

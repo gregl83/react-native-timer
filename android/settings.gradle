@@ -1,3 +1,3 @@
-rootProject.name = 'react-native-timer'
+rootProject.name = 'ReactNativeTimer'
 
 include ':app'

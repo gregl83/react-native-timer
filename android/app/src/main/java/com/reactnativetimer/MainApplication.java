@@ -1,4 +1,4 @@
-package com.react-native-timer;
+package com.reactnativetimer;
 
 import android.app.Application;
 

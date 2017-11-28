@@ -1,4 +1,4 @@
-package com.react-native-timer;
+package com.reactnativetimer;
 
 import com.facebook.react.ReactActivity;
 
@@ -10,6 +10,6 @@ public class MainActivity extends ReactActivity {
      */
     @Override
     protected String getMainComponentName() {
-        return "react-native-timer";
+        return "ReactNativeTimer";
     }
 }
