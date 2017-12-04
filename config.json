@@ -1,0 +1,44 @@
+{
+  "name": "session",
+  "type": "constant",
+  "sets": [
+    {
+      "phases": [
+        {
+          "name": "alpha",
+          "duration": 60,
+          "skip": true,
+          "events": [
+            {
+              "name": "alpha-reminder",
+              "time": -10
+            }
+          ]
+        },
+        {
+          "name": "bravo",
+          "duration": 120,
+          "skip": false,
+          "events": [
+            {
+              "name": "bravo-reminder",
+              "time": -10
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "name": "set-reminder",
+          "time": -10
+        }
+      ]
+    }
+  ],
+  "events": [
+    {
+      "name": "session-reminder",
+      "time": -10
+    }
+  ]
+}
