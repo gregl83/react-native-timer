@@ -14,29 +14,115 @@ export default class ReactNativeTimer extends Component {
     super(props)
 
     this.state = {
-        elapsed: 0,
+        sessionElapsed: 0,
+        setElapsed: 0,
+        phaseElapsed: 0,
+        state: 'Initialized',
+        event: '',
     }
-
-    let timer = new Timer(config)
-
-    timer.addListener('ticked', () => {
-      this.setState((prevState, props) => ({
-          elapsed: prevState.elapsed + 1
-      }));
-    })
-
-    timer.start()
 
     // todo - this.handler.bind(this) events
   }
-  componentDidMount() {}
+  componentDidMount() {
+    let timer = new Timer(config)
+
+    timer.addListener('ticked', event => {
+        this.setState((prevState, props) => ({
+            sessionElapsed: prevState.sessionElapsed + 1,
+            setElapsed: prevState.setElapsed + 1,
+            phaseElapsed: prevState.phaseElapsed + 1,
+        }));
+    })
+
+    timer.addListener('started', event => {
+        this.setState((prevState, props) => ({
+            state: 'Started',
+        }));
+    })
+
+    timer.addListener('stopped', event => {
+        this.setState((prevState, props) => ({
+            state: 'Stopped',
+        }));
+    })
+
+    // session events
+    timer.addListener('session.started', event => {
+        this.setState((prevState, props) => ({
+            event: event.data.attributes.name,
+        }))
+    })
+    timer.addListener('session.finished', event => {
+        this.setState((prevState, props) => ({
+            event: event.data.attributes.name,
+        }))
+    })
+
+    // set events
+    timer.addListener('set.started', event => {
+        this.setState((prevState, props) => ({
+            setElapsed: 0,
+            event: event.data.attributes.name,
+        }))
+    })
+    timer.addListener('set.finished', event => {
+        this.setState((prevState, props) => ({
+            event: event.data.attributes.name,
+        }))
+    })
+
+    // phase events
+    timer.addListener('phase.started', event => {
+        this.setState((prevState, props) => ({
+            phaseElapsed: 0,
+            event: event.data.attributes.name,
+        }))
+    })
+    timer.addListener('phase.finished', event => {
+        this.setState((prevState, props) => ({
+            event: event.data.attributes.name,
+        }))
+    })
+
+    // custom events
+    timer.addListener('alpha-reminder', event => {
+        this.setState((prevState, props) => ({
+            event: event.data.attributes.name,
+        }))
+    })
+    timer.addListener('bravo-reminder', event => {
+        this.setState((prevState, props) => ({
+          event: event.data.attributes.name,
+        }))
+    })
+    timer.addListener('session-reminder', event => {
+        this.setState((prevState, props) => ({
+          event: event.data.attributes.name,
+        }))
+    })
+    timer.addListener('set-reminder', event => {
+        this.setState((prevState, props) => ({
+          event: event.data.attributes.name,
+        }))
+    })
+
+    setTimeout(() => timer.start(), 2000)
+  }
   componentWillUnmount() {}
   render() {
-    let elapsed = this.state.elapsed
+    let sessionElapsed = this.state.sessionElapsed
+    let setElapsed = this.state.setElapsed
+    let phaseElapsed = this.state.phaseElapsed
+    let state = this.state.state
+    let event = this.state.event
     return (
       <View style={styles.container}>
         <Text style={styles.header}>React Native Timer</Text>
-        <Text style={styles.header}>Ticks: {elapsed}</Text>
+        <Text style={styles.metadata}>Session: {sessionElapsed}</Text>
+        <Text style={styles.metadata}>Set: {setElapsed}</Text>
+        <Text style={styles.metadata}>Phase: {phaseElapsed}</Text>
+        <Text style={styles.metadata}>State: {state}</Text>
+        <Text style={styles.metadata}>Event: {event}</Text>
       </View>
     );
   }
@@ -56,6 +142,13 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: "black"
   },
+  metadata: {
+      margin: 5,
+      fontSize: 14,
+      fontWeight: "bold",
+      textAlign: 'center',
+      color: "black"
+    },
 });
 
 AppRegistry.registerComponent('ReactNativeTimer', () => ReactNativeTimer);
