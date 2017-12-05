@@ -6,7 +6,7 @@
       "phases": [
         {
           "name": "alpha",
-          "duration": 60,
+          "duration": 20,
           "skip": true,
           "events": [
             {
@@ -17,7 +17,7 @@
         },
         {
           "name": "bravo",
-          "duration": 120,
+          "duration": 20,
           "skip": false,
           "events": [
             {
@@ -31,6 +31,38 @@
         {
           "name": "set-reminder",
           "time": -10
+        }
+      ]
+    },
+    {
+      "phases": [
+        {
+          "name": "charlie",
+          "duration": 20,
+          "skip": true,
+          "events": [
+            {
+              "name": "charlie-reminder",
+              "time": -10
+            }
+          ]
+        },
+        {
+          "name": "delta",
+          "duration": 20,
+          "skip": false,
+          "events": [
+            {
+              "name": "delta-reminder",
+              "time": -10
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "name": "set-reminder",
+          "time": -5
         }
       ]
     }
