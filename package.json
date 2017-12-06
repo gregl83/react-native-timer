@@ -1,9 +1,10 @@
 {
-  "name": "ReactNativeTimer",
+  "name": "react-native-timer",
   "version": "1.0.0",
   "description": "React Native eventful timer",
   "private": true,
   "keywords": [
+    "react-native-timer",
     "react-native",
     "react",
     "native",
@@ -26,17 +27,18 @@
   },
   "homepage": "https://github.com/gregl83/react-native-timer#readme",
   "dependencies": {
-    "react": "16.0.0-alpha.12",
-    "react-native": "0.50.4",
     "fbemitter": "^2.1.1",
-    "react-native-background-timer": "^2.0.0",
-    "react-timer": "git+https://1bd8c4528e2e41307fdfc0828bce68935045c381:x-oauth-basic@github.com/gregl83/react-timer.git"
+    "react-timer": "git+https://1bd8c4528e2e41307fdfc0828bce68935045c381:x-oauth-basic@github.com/gregl83/react-timer.git",
+    "react-native-background-timer": "^2.0.0"
   },
   "devDependencies": {
+    "react": "^16.0.0",
+    "react-native": "^0.51.0",
     "babel-core": "^6.25.0",
     "babel-jest": "20.0.3",
     "babel-preset-react-native": "1.9.2",
     "babel-preset-node6": "^11.0.0",
+    "flow-bin": "^0.60.1",
     "mocha": "^3.4.2",
     "sinon": "^2.3.4",
     "should": "^11.2.1",
